@@ -1,0 +1,36 @@
+<script>
+    onload = async function () {
+        const ul = await document.createElement('ul')
+        const li = document.createElement('li')
+        const l2 = document.createElement('li')
+        const l3 = document.createElement('li')
+        // const l4 = document.createElement('li')
+
+        // // document.ul.appendChild(li)
+
+
+        // ul.innerHTML = '<li>aaa</li>'\
+        li.innerText='1'
+        l2.innerText='2'
+        l3.innerText='3'
+        // ul.append(
+        //     document.createElement('li').innerText='a'
+        // ) これはできなひ
+        // ul.append(l2)
+        // ul.append(l2) 複数追加にいみはない
+
+        //ここでDOMつりーをくみたて
+        ul.append(li)
+        ul.append(l2)
+        ul.append(l3) //要素数分だけこれをする必要がある
+
+        // ul.append(l3.innerText='FOOO')
+        // ul.appendChild(l4)
+
+        //最後に追加
+        document.body.appendChild(ul)
+
+        // console.log(li )
+
+    }
+</script>
