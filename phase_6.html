@@ -1,40 +1,128 @@
 <script>
     // CSSアニメーションも定義できる
     onload = async function () {
-        const h1 = await document.createElement('h1')
-
-        let css, rules, fadein, fadeout;
-
-        // styleタグを作成
-        css = document.createElement('style');
-        css.media = 'screen';
-        css.type = 'text/css';
+        let css, rules, fadein
+        css = document.createElement('style')
+        css.media = 'screen'
 
         // フェードイン
         fadein = '@keyframes fade-in{' + [
             '0% {opacity: 0}',
             '100% {opacity: 1.0}'
-        ].join(' ') + '}';
+        ].join(' ') + '}'
+        rules = document.createTextNode([fadein].join('\n'))
+        css.appendChild(rules)
+        css.innerText+='@keyframes scaleY {100% {transform: scaleY(1);}}@keyframes notScaleY {100% {transform: scaleY(0);}}.fade-in-word {font-size: 10px;}.fade-in-word__vertical {font-size: 4em;line-height: 1.1em;}.fade-in-word__vertical span {position: relative;display: inline-block;transform: scaleY(0);}.fade-in-word__vertical span:before {content: "";display: block;height: 100%;width: 100%;background-color: #000;position: absolute;top: 0;left: 0;}.fade-in-word__vertical span:nth-of-type(1) {transform-origin: top;}.fade-in-word__vertical span:nth-of-type(1):before {transform-origin: top;}.fade-in-word__vertical span:nth-of-type(1) {animation: scaleY 0.36s cubic-bezier(0.84, 0.01, 0.78, 0.13) 0.1s forwards;}.fade-in-word__vertical span:nth-of-type(1):before {animation: notScaleY 0.3s cubic-bezier(0.11, 1.05, 0.32, 1.03) 0.45s forwards;}.fade-in-word__vertical span:nth-of-type(2) {transform-origin: bottom;}.fade-in-word__vertical span:nth-of-type(2):before {transform-origin: bottom;}.fade-in-word__vertical span:nth-of-type(2) {animation: scaleY 0.36s cubic-bezier(0.84, 0.01, 0.78, 0.13) 0.2s forwards;}.fade-in-word__vertical span:nth-of-type(2):before {animation: notScaleY 0.3s cubic-bezier(0.11, 1.05, 0.32, 1.03) 0.55s forwards;}.fade-in-word__vertical span:nth-of-type(3) {transform-origin: top;}.fade-in-word__vertical span:nth-of-type(3):before {transform-origin: top;}.fade-in-word__vertical span:nth-of-type(3) {animation: scaleY 0.36s cubic-bezier(0.84, 0.01, 0.78, 0.13) 0.3s forwards;}.fade-in-word__vertical span:nth-of-type(3):before {animation: notScaleY 0.3s cubic-bezier(0.11, 1.05, 0.32, 1.03) 0.65s forwards;}.fade-in-word__vertical span:nth-of-type(4) {transform-origin: bottom;}.fade-in-word__vertical span:nth-of-type(4):before {transform-origin: bottom;}.fade-in-word__vertical span:nth-of-type(4) {animation: scaleY 0.36s cubic-bezier(0.84, 0.01, 0.78, 0.13) 0.4s forwards;}.fade-in-word__vertical span:nth-of-type(4):before {animation: notScaleY 0.3s cubic-bezier(0.11, 1.05, 0.32, 1.03) 0.75s forwards;}.fade-in-word__vertical span:nth-of-type(5) {transform-origin: top;}.fade-in-word__vertical span:nth-of-type(5):before {transform-origin: top;}.fade-in-word__vertical span:nth-of-type(5) {animation: scaleY 0.36s cubic-bezier(0.84, 0.01, 0.78, 0.13) 0.5s forwards;}.fade-in-word__vertical span:nth-of-type(5):before {animation: notScaleY 0.3s cubic-bezier(0.11, 1.05, 0.32, 1.03) 0.85s forwards;}.fade-in-word__vertical span:nth-of-type(6) {transform-origin: bottom;}.fade-in-word__vertical span:nth-of-type(6):before {transform-origin: bottom;}.fade-in-word__vertical span:nth-of-type(6) {animation: scaleY 0.36s cubic-bezier(0.84, 0.01, 0.78, 0.13) 0.6s forwards;}.fade-in-word__vertical span:nth-of-type(6):before {animation: notScaleY 0.3s cubic-bezier(0.11, 1.05, 0.32, 1.03) 0.95s forwards;}.fade-in-word__vertical span:nth-of-type(7) {transform-origin: top;}.fade-in-word__vertical span:nth-of-type(7):before {transform-origin: top;}.fade-in-word__vertical span:nth-of-type(7) {animation: scaleY 0.36s cubic-bezier(0.84, 0.01, 0.78, 0.13) 0.7s forwards;}.fade-in-word__vertical span:nth-of-type(7):before {animation: notScaleY 0.3s cubic-bezier(0.11, 1.05, 0.32, 1.03) 1.05s forwards;}.fade-in-word__vertical span:nth-of-type(8) {transform-origin: bottom;}.fade-in-word__vertical span:nth-of-type(8):before {transform-origin: bottom;}.fade-in-word__vertical span:nth-of-type(8) {animation: scaleY 0.36s cubic-bezier(0.84, 0.01, 0.78, 0.13) 0.1s forwards;}.fade-in-word__vertical span:nth-of-type(8):before {animation: notScaleY 0.3s cubic-bezier(0.11, 1.05, 0.32, 1.03) 0.45s forwards;}.fade-in-word__vertical span:nth-of-type(9) {transform-origin: top;}.fade-in-word__vertical span:nth-of-type(9):before {transform-origin: top;}.fade-in-word__vertical span:nth-of-type(9) {animation: scaleY 0.36s cubic-bezier(0.84, 0.01, 0.78, 0.13) 0.2s forwards;}.fade-in-word__vertical span:nth-of-type(9):before {animation: notScaleY 0.3s cubic-bezier(0.11, 1.05, 0.32, 1.03) 0.55s forwards;}.fade-in-word__vertical span:nth-of-type(10) {transform-origin: bottom;}.fade-in-word__vertical span:nth-of-type(10):before {transform-origin: bottom;}.fade-in-word__vertical span:nth-of-type(10) {animation: scaleY 0.36s cubic-bezier(0.84, 0.01, 0.78, 0.13) 0.3s forwards;}.fade-in-word__vertical span:nth-of-type(10):before {animation: notScaleY 0.3s cubic-bezier(0.11, 1.05, 0.32, 1.03) 0.65s forwards;}.fade-in-word__vertical span:nth-of-type(11) {transform-origin: top;}.fade-in-word__vertical span:nth-of-type(11):before {transform-origin: top;}.fade-in-word__vertical span:nth-of-type(11) {animation: scaleY 0.36s cubic-bezier(0.84, 0.01, 0.78, 0.13) 0.4s forwards;}.fade-in-word__vertical span:nth-of-type(11):before {animation: notScaleY 0.3s cubic-bezier(0.11, 1.05, 0.32, 1.03) 0.75s forwards;'
 
-        // フェードアウト
-        fadeout = '@keyframes fade-out{' + [
-            '0% {opacity: 1.0}',
-            '100% {opacity: 0}'
-        ].join('') + '}';
+        document.getElementsByTagName('head')[0].appendChild(css)
 
-        // ルールをstyleタグに追加
-        rules = document.createTextNode([fadein,fadeout].join('\n'));
-        css.appendChild(rules);
+        // const addAnimate = 'animation: fade-in 2.0s ease 0.5s forwards;'
 
-        // head内に作成
-        document.getElementsByTagName('head')[0].appendChild(css);
+        const addAnimate = time => `animation: fade-in 2.0s ease ${time} forwards;`
+        const addAnimate2 = time => `animation: fade-in 4.0s ease ${time} forwards;`
 
-        h1.style='animation: fade-in 2.0s ease 0.5s forwards;'
-        h1.innerText = 'animation!!'
+        // flame.style='animation: fade-in 2.0s ease 0.5s forwards '
+        // flame.innerText = 'animation!!'
+
+        const flame = await document.createElement('div')
+        // flame.style.width = '200px'
+        // flame.style.display = 'flex'
+
+        flame.style = 'border-radius: 50px;display:flex;justify-content: center;align-items: center;height:450px;width:800px;background:#bbb;'+addAnimate('0s')
+        document.body.style = 'display:flex; justify-content: center; align-items: center;'
+
+
+        const center = 'display:flex;justify-content: center;align-items: center;'
+        const middleBox = 'margin: 10px 5px; background:rgba(39,140,165,0.47);width:350px;height:430px;'
+
+        const left = await document.createElement('div')
+        const right = await document.createElement('div')
+        left.style = 'border-radius: 25px;'+middleBox+addAnimate('0.5s')
+        right.style = 'border-radius: 25px;'+middleBox+addAnimate('0.8s')
+
+        const myName = await document.createElement('h2')
+        const image = await document.createElement('img')
+        const dummy = await document.createElement('div')
+        const textDummy = await document.createElement('div')
+
+        const twitter = await document.createElement('a')
+        const github = await document.createElement('a')
+        const blog = await document.createElement('a')
+
+        const SNSrapperT = await document.createElement('div')
+        const SNSrapperG = await document.createElement('div')
+        const SNSrapperB = await document.createElement('div')
+
+        const rapperrapper = await document.createElement('div')
+
+        const dabun = await document.createElement('p')
+
+        dabun.innerText = 'My job is to write interesting programs :)'
+        dabun.style = 'text-align:center;margin20px;margin-top:120px;color:#ddd;'+addAnimate2('2.2s')
+
+
+
+        // SNSrapper.style = center
+
+        twitter.innerText = 'Twitter\n'
+        twitter.href = 'https://twitter.com/Ryu1__1uyR'
+        twitter.style = 'text-decoration: none;color:#ddd;'+addAnimate('1.3s')
+
+        github.innerText = 'GiHub\n'
+        github.href = 'https://github.com/s17001'
+        github.style = 'text-decoration: none;color:#ddd;'+addAnimate('1.6s')
+
+        blog.innerText = 'Blog\n'
+        blog.href = 'https://ryu1kun.hatenablog.com/'
+        blog.style = 'text-decoration: none;color:#ddd;'+addAnimate('1.9s')
+
+
+        SNSrapperT.append(twitter)
+        SNSrapperG.append(github)
+        SNSrapperB.append(blog)
+
+        SNSrapperB.style = 'margin:10px 0;'
+        SNSrapperG.style = 'margin:10px 0;'
+        SNSrapperT.style = 'margin:10px 0;'
+
+
+        rapperrapper.append(SNSrapperT)
+        rapperrapper.append(SNSrapperG)
+        rapperrapper.append(SNSrapperB)
+
+        rapperrapper.style = 'text-align:center;margin-top:100px;'
+
+        //妥協
+        myName.innerHTML = '<span>R</span><span>Y</span><span>U</span><span>I</span><span>C</span><span>H</span><span>I</span><br><span>I</span><span>H</span><span>A</span><span> </span>'
+        myName.className = 'fade-in-word__vertical'
+        myName.style = 'color:#ddd;'
+        image.src = './ryu.jpg'
+        image.style = 'width:150px;height:150px;'
+        dummy.style = center
+        textDummy.style = center
+
+        dummy.append(image)
+        textDummy.append(myName)
+        left.append(textDummy)
+        left.append(dummy)
+
+        right.append(rapperrapper)
+        right.append(dabun)
+
+
+        flame.append(left)
+        flame.append(right)
+
 
         //最後に追加
-        document.body.appendChild(h1)
+        document.body.appendChild(flame)
         //これで全ての準備はととのった
 
     }
 </script>
+
+<!--<style>-->
+<!--    p{-->
+<!--        border-radius: 50px;-->
+<!--    }-->
+<!--</style>-->
