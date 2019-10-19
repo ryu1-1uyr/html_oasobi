@@ -1,10 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<script>
+    // CSSアニメーションも定義できる
+    onload = async function () {
+        const h1 = await document.createElement('h1')
 
-</body>
-</html>
+        let css, rules, fadein, fadeout;
+
+        // styleタグを作成
+        css = document.createElement('style');
+        css.media = 'screen';
+        css.type = 'text/css';
+
+        // フェードイン
+        fadein = '@keyframes fade-in{' + [
+            '0% {opacity: 0}',
+            '100% {opacity: 1.0}'
+        ].join(' ') + '}';
+
+        // フェードアウト
+        fadeout = '@keyframes fade-out{' + [
+            '0% {opacity: 1.0}',
+            '100% {opacity: 0}'
+        ].join('') + '}';
+
+        // ルールをstyleタグに追加
+        rules = document.createTextNode([fadein,fadeout].join('\n'));
+        css.appendChild(rules);
+
+        // head内に作成
+        document.getElementsByTagName('head')[0].appendChild(css);
+
+        h1.style='animation: fade-in 2.0s ease 0.5s forwards;'
+        h1.innerText = 'its answer'
+
+        //最後に追加
+        document.body.appendChild(h1)
+        //これで全ての準備はととのった
+
+    }
+</script>
